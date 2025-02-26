@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" styleClass="root-pane" stylesheets="@styles/signup.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carrentalsystem.SignupController">
+
+    <!-- Background Image -->
+    <ImageView fitHeight="800" fitWidth="1000" preserveRatio="true">
+        <Image url="@images/background3.jpg" />
+    </ImageView>
+
+    <VBox alignment="CENTER" layoutX="350.0" prefHeight="835.0" prefWidth="300.0" spacing="20">
+        <Label styleClass="title-label" text="Create Account" />
+        <!-- User Input Fields -->
+
+        <TextField fx:id="firstNameField" promptText="First Name" styleClass="input-field" />
+        <TextField fx:id="lastNameField" promptText="Last Name" styleClass="input-field" />
+        <TextField fx:id="ageField" promptText="Age" styleClass="input-field" />
+        <ComboBox fx:id="genderComboBox" prefHeight="54.0" prefWidth="309.0" promptText="Select Gender" styleClass="combo-box" />
+        <!-- Date of Birth Field -->
+        <DatePicker fx:id="dateOfBirthPicker" prefHeight="54.0" prefWidth="329.0" promptText="Date of Birth" styleClass="date-picker" />
+        <TextField fx:id="usernameField" promptText="Username" styleClass="input-field" />
+        <PasswordField fx:id="passwordField" promptText="Enter Password" styleClass="input-field" />
+        <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" styleClass="input-field" />
+        <!-- Signup Button -->
+        <Button fx:id="signupButton" onAction="#handleSignup" styleClass="signup-button" text="Sign Up" />
+        <Button  onAction="#handleBack" styleClass="signup-button" text="Back" />
+
+        <!-- Status Message -->
+        <Label fx:id="statusLabel" styleClass="status-label" />
+    </VBox>
+
+</AnchorPane>

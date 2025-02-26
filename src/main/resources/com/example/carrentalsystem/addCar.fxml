@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" stylesheets="@styles/addCar.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carrentalsystem.AddCarController">
+    <children>
+        <!-- Background Image -->
+        <ImageView fitHeight="800.0" fitWidth="1000.0" preserveRatio="false">
+            <image>
+                <Image url="@images/background.jpg" />
+            </image>
+        </ImageView>
+
+        <!-- Semi-transparent Gradient Overlay -->
+        <Rectangle height="818.0" layoutX="-42.0" layoutY="-18.0" opacity="0.5" width="1042.0">
+            <fill>
+                <LinearGradient endX="1" endY="1" startX="0" startY="0">
+                    <stops>
+                        <Stop color="#000000" offset="0" />
+                        <Stop color="#2d3436" offset="0.5" />
+                        <Stop color="#333333" offset="1" />
+                    </stops>
+                </LinearGradient>
+            </fill>
+        </Rectangle>
+
+        <!-- Left Section - Input Form -->
+        <VBox layoutX="50" layoutY="50" prefWidth="400" spacing="20">
+            <!-- Title -->
+            <Label styleClass="form-title" text="Add New Car" />
+
+            <!-- Input Fields -->
+            <VBox spacing="15" styleClass="input-container">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <FontAwesomeIconView glyphName="CAR" size="20" styleClass="input-icon" />
+                    <TextField fx:id="carNameField" promptText="Car Model" styleClass="modern-input" />
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <FontAwesomeIconView glyphName="USERS" size="20" styleClass="input-icon" />
+                    <TextField fx:id="totalSeatsField" promptText="Seat Capacity" styleClass="modern-input" />
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <FontAwesomeIconView glyphName="TACHOMETER" size="20" styleClass="input-icon" />
+                    <TextField fx:id="fuelTypeField" promptText="Fuel Type" styleClass="modern-input" />
+                </HBox>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <FontAwesomeIconView glyphName="DOLLAR" size="20" styleClass="input-icon" />
+                    <TextField fx:id="rentPriceField" promptText="Daily Rate" styleClass="modern-input" />
+                </HBox>
+            </VBox>
+
+            <!-- Error Message -->
+            <Label fx:id="errorLabel" styleClass="error-label" text="" />
+
+            <!-- Add Button -->
+            <Button onAction="#handleAddCar" styleClass="gradient-button-add">
+                <graphic>
+                    <FontAwesomeIconView glyphName="PLUS" size="16" />
+                </graphic>
+                Add Vehicle
+            </Button>
+
+            <!-- Centered Back Button -->
+            <HBox alignment="CENTER_LEFT" maxWidth="400" spacing="10">
+                <Button onAction="#handleBack" styleClass="gradient-button-back">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="ARROW_LEFT" size="20" />
+                    </graphic>
+                    Back
+                </Button>
+            </HBox>
+        </VBox>
+
+        <!-- Right Section - Image Upload -->
+        <VBox alignment="CENTER" layoutX="550" layoutY="50" prefWidth="400" spacing="30">
+            <!-- Image Preview -->
+            <StackPane styleClass="image-upload-container">
+                <ImageView fx:id="carImageView" fitHeight="250" fitWidth="350" preserveRatio="true" />
+                <Label fx:id="imagePlaceholder" styleClass="image-placeholder" text="No Image Selected" />
+            </StackPane>
+
+            <!-- Upload Button -->
+            <Button fx:id="uploadImageButton" onAction="#handleImageUpload" styleClass="gradient-button-upload">
+                <graphic>
+                    <FontAwesomeIconView glyphName="UPLOAD" size="16" />
+                </graphic>
+                Upload Vehicle Image
+            </Button>
+
+            <!-- Clear Image Button -->
+            <Button fx:id="clearImageButton" onAction="#clearImage" styleClass="gradient-button-clear">
+                <graphic>
+                    <FontAwesomeIconView glyphName="TIMES" size="16" />
+                </graphic>
+                Clear Image
+            </Button>
+        </VBox>
+
+        <!-- Custom Alert Popup -->
+        <StackPane fx:id="customAlertPane" prefHeight="200" prefWidth="300" styleClass="popup-container" visible="false">
+            <VBox alignment="CENTER" spacing="15">
+                <!-- Icon -->
+                <Label fx:id="alertIcon" styleClass="popup-icon" text="✔" />
+                <!-- Message -->
+                <Label fx:id="alertMessage" styleClass="popup-message" text="Success!" />
+                <!-- OK Button -->
+                <Button onAction="#closeCustomAlert" styleClass="popup-button" text="OK" />
+            </VBox>
+        </StackPane>
+    </children>
+</AnchorPane>
