@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" stylesheets="@styles/dashboard.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carrentalsystem.DashboardController">
+    <children>
+        <!-- Sidebar with curved edge -->
+        <VBox alignment="CENTER" layoutX="0.0" layoutY="0.0" prefHeight="822.0" prefWidth="250.0" styleClass="sidebar">
+            <padding>
+                <Insets bottom="20" top="20" />
+            </padding>
+            <children>
+                <!-- Container for circle and image -->
+                <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="75.0" layoutY="10.0">
+                    <image>
+                        <Image url="@images/admin_icon.png" />
+                    </image>
+                </ImageView>
+                <!-- Modified Profile Section -->
+                <VBox alignment="CENTER" spacing="15" styleClass="profile-section">
+                    <Label styleClass="admin-label" text="Welcome, Admin" />
+                    <Label styleClass="role-label" text="System Administrator" />
+                </VBox>
+
+                <!-- Navigation Menu -->
+                <VBox prefHeight="516.0" prefWidth="210.0" spacing="15" styleClass="nav-menu" VBox.vgrow="ALWAYS">
+                    <padding>
+                        <Insets bottom="30" top="30" />
+                    </padding>
+                    <Button onAction="#handleAvailableCars" prefHeight="51.0" prefWidth="200.0" styleClass="menu-button" text="🚗 Available Cars" />
+                    <Button onAction="#handleAddCar" prefHeight="51.0" prefWidth="200.0" styleClass="menu-button" text="➕ Add Car" />
+                    <Button onAction="#handleReturnCar" prefHeight="51.0" prefWidth="199.0" styleClass="menu-button" text="↩️ Return Car" />
+                    <Button onAction="#handleActiveCustomer" prefHeight="51.0" prefWidth="200.0" styleClass="menu-button" text="👥 Active Customers" />
+                    <Button onAction="#handleFeedback" prefHeight="51.0" prefWidth="199.0" styleClass="menu-button" text="💭 Feedback" />
+                    <Button onAction="#handleRentalHistory" prefHeight="51.0" prefWidth="198.0" styleClass="menu-button" text="💭 Rental History" />
+
+                    <Button onAction="#handleLogout" prefHeight="49.0" prefWidth="200.0" styleClass="logout-button" text="🚪 Logout">
+                  <font>
+                     <Font size="14.0" />
+                  </font></Button>
+                </VBox>
+
+                <!-- Logout Section -->
+                <VBox alignment="CENTER" />
+            </children>
+        </VBox>
+
+        <!-- Main Content Area -->
+        <VBox layoutX="250.0" layoutY="0.0" prefHeight="800.0" prefWidth="750.0" styleClass="main-content">
+            <!-- Header Section -->
+            <HBox alignment="CENTER_LEFT" styleClass="header-section">
+                <Label styleClass="dashboard-title" text="Dashboard Overview" />
+                <Region HBox.hgrow="ALWAYS" />
+<!--                <HBox alignment="CENTER" spacing="15" styleClass="quick-stats">-->
+<!--                    <Label text="Today's Rentals: 12" />-->
+<!--                    <Label text="Active Users: 45" />-->
+<!--                    <Label text="Revenue: $2,450" />-->
+<!--                </HBox>-->
+            </HBox>
+
+            <!-- Statistics Cards Grid -->
+            <GridPane hgap="20" styleClass="stats-grid" vgap="20">
+                <!-- Available Cars Card -->
+                <VBox id="availableCars" prefHeight="150" prefWidth="350" styleClass="statistics-card" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <Circle radius="30" styleClass="stat-icon" />
+                        <VBox>
+                            <Label style="-fx-font-size: 18px;" styleClass="stat-title" text="Available Cars" />
+                            <Label fx:id="availableCarsLabel" style="-fx-font-size: 24px;" styleClass="stat-value" text="10" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Total Income Card -->
+                <VBox id="totalIncome" prefHeight="150" prefWidth="350" styleClass="statistics-card" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <Circle radius="30" styleClass="stat-icon" />
+                        <VBox>
+                            <Label style="-fx-font-size: 18px;" styleClass="stat-title" text="Total Income" />
+                            <Label fx:id="totalIncomeLabel" style="-fx-font-size: 24px;" styleClass="stat-value" text="" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Total Customers Card -->
+                <VBox id="totalCustomers" prefHeight="150" prefWidth="350" styleClass="statistics-card" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <Circle radius="30" styleClass="stat-icon" />
+                        <VBox>
+                            <Label style="-fx-font-size: 18px;" styleClass="stat-title" text="Total Rentals" />
+                            <Label fx:id="totalCustomersLabel" style="-fx-font-size: 24px;" styleClass="stat-value" text="15" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Active Rentals Card -->
+                <VBox id="activeRentals" prefHeight="150" prefWidth="350" styleClass="statistics-card" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <Circle radius="30" styleClass="stat-icon" />
+                        <VBox>
+                            <Label style="-fx-font-size: 18px;" styleClass="stat-title" text="Active Rentals">
+                        <font>
+                           <Font size="33.0" />
+                        </font></Label>
+                            <Label fx:id="activeRentalsLabel" style="-fx-font-size: 24px;" styleClass="stat-value" text="3" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+                <columnConstraints>
+                    <ColumnConstraints />
+                    <ColumnConstraints />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                    <RowConstraints />
+                </rowConstraints>
+            </GridPane>
+        </VBox>
+    </children>
+</AnchorPane>

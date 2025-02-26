@@ -1,0 +1,78 @@
+/* Main container styling */
+.main-container {
+    -fx-padding: 20;
+    -fx-background-color: linear-gradient(to bottom right, #E0EAFC, #CFDEF3);
+}
+
+/* Table styling */
+.styled-table {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 5);
+}
+
+.styled-table .column-header-background {
+    -fx-background-color: linear-gradient(to right, #667eea, #764ba2);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+.styled-table .column-header {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-padding: 15px;
+}
+
+.styled-table .table-row-cell:filled {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #f3f3f3 transparent;
+}
+
+.styled-table .table-row-cell:filled:odd {
+    -fx-background-color: #f8f9ff;
+}
+
+.styled-table .table-row-cell:filled:selected {
+    -fx-background-color: linear-gradient(to right, #667eea, #764ba2);
+    -fx-text-fill: white;
+    -fx-background-insets: 0;
+}
+
+.styled-table .table-row-cell:filled:hover {
+    -fx-background-color: #e6e9ff;
+    -fx-cursor: hand;
+}
+
+.styled-table .table-cell {
+    -fx-padding: 15px;
+    -fx-alignment: CENTER;
+    -fx-font-size: 13px;
+    -fx-text-fill: #4a4a4a;
+}
+
+.styled-table .scroll-bar:horizontal,
+.styled-table .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.styled-table .scroll-bar .thumb {
+    -fx-background-color: rgba(102, 126, 234, 0.5);
+    -fx-background-radius: 4px;
+}
+
+/* Button styling */
+.gradient-btn {
+    -fx-background-color: linear-gradient(to right, #667eea, #764ba2);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 12px 35px;
+    -fx-background-radius: 25px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 3);
+    -fx-cursor: hand;
+}
+
+.gradient-btn:hover {
+    -fx-background-color: linear-gradient(to right, #764ba2, #667eea);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 5);
+}

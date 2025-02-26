@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" styleClass="root" stylesheets="@styles/userDashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carrentalsystem.UserDashboardController">
+
+    <children>
+        <!-- Header Bar with integrated profile section -->
+        <HBox alignment="CENTER_LEFT" prefHeight="80.0" styleClass="header-bar" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+            <!-- Logo/Title -->
+            <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                <Label styleClass="header-label" text="Dashboard" />
+            </HBox>
+
+<!--            &lt;!&ndash; Profile Section &ndash;&gt;-->
+<!--            <VBox alignment="CENTER" spacing="10" styleClass="profile-container">-->
+<!--                <Circle fx:id="userPhotoCircle" radius="30" styleClass="user-photo-circle" />-->
+<!--                <Label fx:id="usernameLabel" styleClass="username-label" text="Guest User" />-->
+<!--            </VBox>-->
+        </HBox>
+
+        <!-- Main Content Container -->
+        <HBox spacing="30" styleClass="main-container" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="80">
+
+            <!-- Sidebar Navigation -->
+            <VBox spacing="25" styleClass="sidebar">
+                <Button onAction="#handleProfile" styleClass="nav-button" text="👤 Profile" />
+                <Button onAction="#handleRentCar" styleClass="nav-button" text="🚘 Rent Car" />
+                <Button onAction="#handleSubscription" styleClass="nav-button" text="💎 Subscription" />
+                <Button onAction="#handleFeedback" styleClass="nav-button" text="📝 Feedback" />
+                <Button onAction="#handleMyBookings" styleClass="nav-button" text="📅 My Bookings" />
+                <Region VBox.vgrow="ALWAYS" />
+                <Button onAction="#handleLogout" styleClass="nav-button, logout-button" text="🚪 Logout" />
+            </VBox>
+
+            <!-- Content Area -->
+            <VBox spacing="25" styleClass="content-area" HBox.hgrow="ALWAYS">
+                <!-- Promotional Banner -->
+                <HBox alignment="CENTER" styleClass="promo-banner">
+                    <Label styleClass="promo-text" text="🌟 Special Offer: Get 10% off for subscription!" />
+                </HBox>
+
+                <!-- Car Display Section -->
+                <StackPane styleClass="car-display">
+                    <ImageView fx:id="rotatingCarImage" fitHeight="250" fitWidth="400" preserveRatio="true" />
+                    <HBox alignment="BOTTOM_CENTER" spacing="15" styleClass="car-controls" />
+                </StackPane>
+
+                <!-- Car Details Card -->
+                <VBox fx:id="carInfoBox" spacing="15" styleClass="car-details-card">
+                    <HBox alignment="CENTER_LEFT" spacing="20">
+                        <Label styleClass="car-details-header" text="🚘 Selected Car:" />
+                        <Label fx:id="carNameLabel" styleClass="car-name" />
+                    </HBox>
+                    <GridPane hgap="20" vgap="15">
+                        <Label styleClass="detail-label" text="Fuel Type:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Label fx:id="carFuelTypeLabel" styleClass="detail-value" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Label styleClass="detail-label" text="Daily Rate:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label fx:id="carRentPriceLabel" styleClass="detail-value" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <columnConstraints>
+                     <ColumnConstraints />
+                     <ColumnConstraints />
+                  </columnConstraints>
+                  <rowConstraints>
+                     <RowConstraints />
+                     <RowConstraints />
+                  </rowConstraints>
+                    </GridPane>
+                </VBox>
+
+                <!-- Car Cards Grid -->
+                <FlowPane fx:id="carFlowPane" hgap="25" styleClass="car-grid" vgap="25" />
+            </VBox>
+        </HBox>
+    </children>
+</AnchorPane>

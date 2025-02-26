@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" styleClass="anchor-pane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.carrentalsystem.ActiveCustomerController">
+
+    <stylesheets>
+        <URL value="@styles/ActiveCustomer.css" />
+    </stylesheets>
+
+    <children>
+        <VBox alignment="TOP_CENTER" layoutY="66.0" prefHeight="599.0" prefWidth="1078.0" spacing="20" styleClass="content-box">
+            <!-- Header Label -->
+            <Label styleClass="header-label" text="Active Customers" />
+
+            <!-- TableView -->
+            <TableView fx:id="rentalsTable" styleClass="styled-table">
+                <columns>
+                    <TableColumn fx:id="idColumn" styleClass="column-header" text="ID" />
+                    <TableColumn fx:id="carNameColumn" prefWidth="170.0" styleClass="column-header" text="Car Name" />
+                    <TableColumn fx:id="customerNameColumn" prefWidth="160.0" styleClass="column-header" text="Customer Name" />
+                    <TableColumn fx:id="startDateColumn" prefWidth="165.0" styleClass="column-header" text="Start Date" />
+                    <TableColumn fx:id="endDateColumn" prefWidth="170.0" styleClass="column-header" text="End Date" />
+                    <TableColumn fx:id="rentalDaysColumn" prefWidth="200.0" styleClass="column-header" text="Rental Days" />
+                </columns>
+            </TableView>
+
+            <!-- Back Button -->
+            <HBox alignment="CENTER">
+                <Button fx:id="backBtn" onAction="#handleBack" styleClass="back-btn" text="Back" />
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>
