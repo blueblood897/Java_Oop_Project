@@ -1,0 +1,65 @@
+CREATE SCHEMA car_rental_system
+CREATE TABLE `cars` (
+   `id` int NOT NULL AUTO_INCREMENT,
+   `name` varchar(100) NOT NULL,
+   `available` tinyint(1) DEFAULT '1',
+   `photo` longblob,
+   `total_seats` int DEFAULT NULL,
+   `fuel_type` varchar(100) NOT NULL,
+   `rent_price_per_day` double NOT NULL,
+   PRIMARY KEY (`id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+CREATE TABLE `feedback` (
+   `id` int NOT NULL AUTO_INCREMENT,
+   `username` varchar(50) NOT NULL,
+   `feedback` text NOT NULL,
+   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+   `admin_reply` text,
+   PRIMARY KEY (`id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+CREATE TABLE `payments` (
+   `id` int NOT NULL AUTO_INCREMENT,
+   `username` varchar(50) NOT NULL,
+   `email` varchar(100) NOT NULL,
+   `payment_method` varchar(20) NOT NULL,
+   `card_number` varchar(20) DEFAULT NULL,
+   `expiry_date` varchar(10) DEFAULT NULL,
+   `cvv` varchar(5) DEFAULT NULL,
+   `payment_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+   PRIMARY KEY (`id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+CREATE TABLE `rentals` (
+   `id` int NOT NULL AUTO_INCREMENT,
+   `car_name` varchar(255) NOT NULL,
+   `customer_name` varchar(255) NOT NULL,
+   `start_date` date NOT NULL,
+   `end_date` date NOT NULL,
+   `rental_days` bigint NOT NULL,
+   `rental_type` varchar(45) DEFAULT NULL,
+   `hour` int DEFAULT NULL,
+   `total_cost` double DEFAULT NULL,
+   PRIMARY KEY (`id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+CREATE TABLE `return_car` (
+   `id` int NOT NULL AUTO_INCREMENT,
+   `car_name` varchar(255) NOT NULL,
+   `car_type` varchar(255) DEFAULT NULL,
+   `price` decimal(10,2) DEFAULT NULL,
+   `customer_name` varchar(255) DEFAULT NULL,
+   `return_date` date DEFAULT NULL,
+   PRIMARY KEY (`id`)
+ ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+CREATE TABLE `users` (
+   `First_Name` varchar(255) NOT NULL,
+   `Last_Name` varchar(255) DEFAULT NULL,
+   `Age` int DEFAULT NULL,
+   `Gender` varchar(50) DEFAULT NULL,
+   `USERNAME` varchar(255) DEFAULT NULL,
+   `Password` varchar(255) DEFAULT NULL,
+   `Date_Of_Birth` date DEFAULT NULL,
+   `Email` varchar(255) DEFAULT NULL,
+   `Phone` int DEFAULT NULL,
+   `photo` longblob,
+   `is_subscribed` int DEFAULT '0',
+   PRIMARY KEY (`First_Name`)
+ ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
